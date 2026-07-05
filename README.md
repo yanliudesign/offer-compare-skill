@@ -1,4 +1,4 @@
-# Offer Compare Skill
+# Offer Compare Skill — Offer 对比决策器
 
 > 拿到两份（或多份）offer 纠结怎么选？把它扔给一个**有立场、会得罪人**的 Senior Career Decision Advisor，一份 HTML 决策报告就出来了。
 
