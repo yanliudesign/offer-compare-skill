@@ -277,35 +277,75 @@
   .foot-meta { font-size: 11px; color: var(--muted); line-height: 1.75; padding-top: 16px; }
   .foot-meta strong { color: var(--ink); font-weight: 700; }
 
-  /* === Report tools (bottom-right floating) === */
+  /* === Unified report toolbar — brand chip + segmented lang toggle + export buttons === */
+  /* Brand chip (top of header — highlighted, one per skill family) */
+  .brand-chip {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--accent, #facc15);
+    color: var(--ink, #1f1f1d);
+    font-family: var(--display, -apple-system, "SF Pro Display", "Helvetica Neue", sans-serif);
+    font-weight: 900;
+    font-size: 17px;
+    letter-spacing: 0.005em;
+    line-height: 1.1;
+    padding: 8px 16px;
+    border-radius: 5px;
+    border: 1.75px solid var(--ink, #1f1f1d);
+    box-shadow: 3px 3px 0 var(--ink, #1f1f1d);
+    margin-bottom: 18px;
+  }
+  /* Bottom-right floating toolbar */
   .report-tools {
     position: fixed; right: 24px; bottom: 24px; z-index: 9999;
-    display: inline-flex; align-items: center; gap: 4px;
-    background: #1f1f1d; color: #fafaf7;
-    padding: 8px 8px 8px 22px; border-radius: 999px;
-    font-family: var(--body); font-size: 13px; letter-spacing: 0.02em;
-    box-shadow: 0 6px 22px rgba(0,0,0,0.28), 0 0 0 1px rgba(0,0,0,0.06);
+    display: flex; gap: 10px; align-items: center;
   }
-  .report-tools .rt-kicker { color: #7a7a72; font-size: 12px; font-weight: 500; margin-right: 12px; user-select: none; }
-  .report-tools .rt-btn { background: transparent; color: #d8d8d3; border: 0; cursor: pointer; padding: 8px 14px; font: inherit; font-weight: 600; letter-spacing: 0.05em; display: inline-flex; align-items: center; gap: 6px; border-radius: 999px; transition: color 160ms ease, background 160ms ease; }
-  .report-tools .rt-btn:hover { color: #fafaf7; }
-  .report-tools .rt-divider { width: 1px; height: 18px; background: #3a3a37; margin: 0 6px; }
-  .report-tools .lang-toggle { padding: 6px 10px; }
-  .report-tools .lang-toggle .seg { color: #6b6b66; font-weight: 600; transition: color 160ms ease; }
-  .report-tools .lang-toggle .sep { color: #3a3a37; margin: 0 8px; font-weight: 400; }
-  html[lang="en"] .report-tools .lang-toggle .seg.en { color: #fafaf7; }
-  html[lang="zh"] .report-tools .lang-toggle .seg.zh { color: #fafaf7; }
-  .report-tools .rt-export { position: relative; display: inline-flex; }
-  .report-tools .rt-btn.pdf { background: var(--accent); color: #1f1f1d; padding: 8px 18px; border: 1.5px solid #1f1f1d; box-shadow: inset 0 0 0 2px var(--accent); }
-  .report-tools .rt-btn.pdf:hover { background: #fde047; color: #1f1f1d; }
-  .report-tools .rt-btn.pdf .caret { font-size: 10px; margin-left: 2px; opacity: 0.7; transition: transform 160ms ease; }
-  .report-tools .rt-btn.pdf[aria-expanded="true"] .caret { transform: rotate(180deg); }
-  .report-tools .rt-menu { position: absolute; bottom: calc(100% + 10px); right: 0; background: #1f1f1d; border-radius: 14px; padding: 6px; display: flex; flex-direction: column; min-width: 180px; box-shadow: 0 10px 28px rgba(0,0,0,0.34), 0 0 0 1px rgba(0,0,0,0.06); }
-  .report-tools .rt-menu[hidden] { display: none; }
-  .report-tools .rt-menu button { background: transparent; color: #d8d8d3; border: 0; cursor: pointer; padding: 10px 14px; font: inherit; font-size: 13px; font-weight: 600; letter-spacing: 0.03em; text-align: left; border-radius: 8px; display: flex; align-items: center; gap: 10px; transition: background 160ms ease, color 160ms ease; }
-  .report-tools .rt-menu button:hover { background: #2a2a27; color: #fafaf7; }
-  .report-tools .rt-menu button .glyph { color: #7a7a72; font-weight: 500; width: 14px; text-align: center; }
-
+  /* Segmented [EN | 中文] toggle */
+  .report-tools .lang-toggle {
+    display: inline-flex;
+    background: #1f1f1d;
+    border-radius: 999px;
+    padding: 4px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.20);
+  }
+  .report-tools .lang-toggle button {
+    background: transparent;
+    color: #9a9a92;
+    border: 0;
+    padding: 9px 16px;
+    font-family: var(--mono, "SF Mono", "JetBrains Mono", Menlo, monospace);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    border-radius: 999px;
+    transition: all 0.15s ease;
+    min-width: 54px;
+  }
+  .report-tools .lang-toggle button:hover { color: #fafaf7; }
+  html[lang="en"] .report-tools .lang-toggle button[data-set="en"],
+  html[lang="zh"] .report-tools .lang-toggle button[data-set="zh"] {
+    background: var(--accent, #facc15);
+    color: #1f1f1d;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+  }
+  /* Export buttons — separate black pills */
+  .report-tools .export-btn {
+    background: #1f1f1d;
+    color: #fafaf7;
+    border: 0;
+    padding: 12px 20px;
+    border-radius: 999px;
+    font-family: var(--body, -apple-system, "SF Pro Text", sans-serif);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    transition: all 0.18s ease;
+  }
+  .report-tools .export-btn:hover {
+    background: #b45309;
+    transform: translateY(-2px);
+  }
   /* === Language toggle content swap === */
   html[lang="en"] [data-lang="zh"] { display: none !important; }
   html[lang="zh"] [data-lang="en"] { display: none !important; }
@@ -344,28 +384,13 @@
 <!-- ============================================================
      REPORT TOOLS · bottom-right floating toolbar
      ============================================================ -->
-<div class="report-tools" role="toolbar" aria-label="Tools">
-  <span class="rt-kicker"><span data-lang="en">Tools</span><span data-lang="zh">工具</span></span>
-  <button type="button" class="rt-btn lang-toggle" onclick="toggleLang()" aria-label="Switch language">
-    <span class="seg en">EN</span><span class="sep">/</span><span class="seg zh">中文</span>
-  </button>
-  <span class="rt-divider"></span>
-  <div class="rt-export">
-    <button type="button" class="rt-btn pdf" onclick="toggleExportMenu(event)" aria-haspopup="menu" aria-expanded="false">
-      <span data-lang="en">↓ EXPORT</span><span data-lang="zh">↓ 导出</span>
-      <span class="caret" aria-hidden="true">▾</span>
-    </button>
-    <div class="rt-menu" role="menu" hidden>
-      <button type="button" role="menuitem" onclick="exportMarkdown(); closeExportMenu()">
-        <span class="glyph">MD</span>
-        <span data-lang="en">Markdown (.md)</span><span data-lang="zh">Markdown 文件</span>
-      </button>
-      <button type="button" role="menuitem" onclick="window.print(); closeExportMenu()">
-        <span class="glyph">PDF</span>
-        <span data-lang="en">Print / PDF</span><span data-lang="zh">打印 / PDF</span>
-      </button>
-    </div>
+<div class="report-tools" role="toolbar" aria-label="Report tools">
+  <div class="lang-toggle" role="group" aria-label="Language">
+    <button type="button" data-set="en" onclick="setLang('en')">EN</button>
+    <button type="button" data-set="zh" onclick="setLang('zh')">中文</button>
   </div>
+  <button type="button" class="export-btn" onclick="exportMarkdown()">Export MD</button>
+  <button type="button" class="export-btn" onclick="window.print()">Export PDF</button>
 </div>
 
 <div class="page">
@@ -373,6 +398,7 @@
   <!-- ============================================================
        HEADER
        ============================================================ -->
+  <div class="brand-chip">⚖️ <span data-lang="en">Offer Decision Report</span><span data-lang="zh">Offer 决策报告</span></div>
   <div class="meta-strip">
     <span><span data-lang="en">Offer Compare Report</span><span data-lang="zh">Offer 决策报告</span></span>
     <span class="dot"></span>
@@ -954,6 +980,7 @@
 
 <script>
   // === Language toggle ===
+  function setLang(lang) { document.documentElement.lang = lang; }
   function toggleLang() {
     const html = document.documentElement;
     html.lang = html.lang === 'en' ? 'zh' : 'en';
