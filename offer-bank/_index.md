@@ -10,17 +10,20 @@
 
 | Slug | Company A × Role | Company B × Role | Level | Candidate | Decided | Recommendation | Status | Report |
 |---|---|---|---|---|---|---|---|---|
-| _(empty — 第一次跑 Step 3 会在这里新增一行)_ | | | | | | | | |
+| [anthropic-vs-linear-staff-pd-202607](./anthropic-vs-linear-staff-pd-202607.md) | Anthropic × Staff PD | Linear × Staff PD | Staff | General case | 2026-07-05 | 🏆 A (Anthropic) · ⭐⭐⭐ | `compared` | `~/Desktop/Claude skills/offer-compare-anthropic-vs-linear-staff-pd-202607.html` |
+| [microsoft-stay-vs-linear-staff-pd-202607](./microsoft-stay-vs-linear-staff-pd-202607.md) | MSFT × Principal PD (stay) | Linear × Principal PD (leave) | Principal (parity, v2) | General + user priorities | 2026-07-05 | 🏆 B (Linear) · ⭐⭐⭐ · **v2 flipped from v1's A** | `compared` | `~/Desktop/Claude skills/offer-compare-microsoft-stay-vs-linear-staff-pd-202607.html` |
+| [msft-vs-linear-vs-anthropic-pd-202607](./msft-vs-linear-vs-anthropic-pd-202607.md) | MSFT × Principal (stay) | Linear × Principal | Anthropic × Product Designer (~IC5?) · 3-way | General + user priorities | 2026-07-05 | 🏆 B (Linear) · 🥈 Anthropic · 🥉 MSFT · ⭐⭐⭐ | `compared` | `~/Desktop/Claude skills/offer-compare-msft-vs-linear-vs-anthropic-pd-202607.html` |
 
 ---
 
 ## 结果分类
 
 ### 🏆 推荐 A（走了 A）
-_(待第一份决策生成)_
+- [Anthropic vs Linear · Staff PD · 2026-07 · General case](./anthropic-vs-linear-staff-pd-202607.md) — ⭐⭐⭐ · `compared`
 
 ### 🏆 推荐 B（走了 B）
-_(待第一份决策生成)_
+- [MSFT (stay) vs Linear · Both Principal · 2026-07 v2 · user priorities](./microsoft-stay-vs-linear-staff-pd-202607.md) — ⭐⭐⭐ · `compared` · **v2 flipped from v1's A because Linear leveled up to Principal + user priorities favored craft/growth**
+- [MSFT vs Linear vs Anthropic · 3-way Principal PD · 2026-07](./msft-vs-linear-vs-anthropic-pd-202607.md) — ⭐⭐⭐ · `compared` · **3-way: 🥇 Linear · 🥈 Anthropic · 🥉 MSFT** (Anthropic level ambiguous)
 
 ### 🚶 Walk-away（都拒了 / 回去谈）
 _(待第一份决策生成)_
